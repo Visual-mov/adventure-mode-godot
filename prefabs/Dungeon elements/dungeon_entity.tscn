@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7dq7eu00xaq3"]
+
+[ext_resource type="Script" uid="uid://dllxs3g6ydevx" path="res://prefabs/Dungeon elements/dungeon_entity.gd" id="1_gm611"]
+
+[node name="DungeonEntity" type="Node3D"]
+script = ExtResource("1_gm611")

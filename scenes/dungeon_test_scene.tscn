@@ -1,11 +1,12 @@
-[gd_scene load_steps=49 format=3 uid="uid://b11m7b6oc51o7"]
+[gd_scene load_steps=40 format=3 uid="uid://b11m7b6oc51o7"]
 
 [ext_resource type="Script" uid="uid://dgbtlj6yg1hj7" path="res://scripts/playerSocket_adventure.gd" id="1_ko2my"]
 [ext_resource type="PackedScene" uid="uid://b34jdvaqt8gbn" path="res://art/Props/z_target.tscn" id="2_6hxd4"]
 [ext_resource type="Script" uid="uid://cq5je6sh2yyo6" path="res://scripts/Multplayer_Manager.gd" id="3_0ge6a"]
 [ext_resource type="Script" uid="uid://cslsp74o38xr8" path="res://scripts/cam_gantry_playerFollow.gd" id="4_ep2fr"]
 [ext_resource type="Script" uid="uid://dl7ctkny7x4m7" path="res://scripts/camera_control.gd" id="5_byxab"]
-[ext_resource type="Environment" uid="uid://c5vgp5xgbfy74" path="res://scenes/default_env.tres" id="16_p6x0u"]
+[ext_resource type="PackedScene" uid="uid://vwkcbj8sdfmp" path="res://prefabs/Dungeon elements/door_of_trials.tscn" id="7_3uq5m"]
+[ext_resource type="PackedScene" uid="uid://c3w2vh510huih" path="res://prefabs/Dungeon elements/button_floor.tscn" id="11_f3ouy"]
 [ext_resource type="PackedScene" uid="uid://dettguqlldl03" path="res://prefabs/UI/UI_items.tscn" id="17_g7ysj"]
 [ext_resource type="Script" uid="uid://bkrmq3ev5rr4r" path="res://Dress Up/scripts/DU_outfit_control.gd" id="18_q5pk2"]
 [ext_resource type="Script" uid="uid://01j88orv267w" path="res://scripts/UI/Game_HUD_Master.gd" id="19_bg1i1"]
@@ -88,109 +89,19 @@ fill_from = Vector2(1, 0.6)
 fill_to = Vector2(0.1, 0.1)
 metadata/_snap_enabled = true
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_nes8p"]
-top_radius = 0.035
-bottom_radius = 1.0
-height = 1.0
-radial_segments = 4
+[sub_resource type="BoxShape3D" id="BoxShape3D_1wmw5"]
+size = Vector3(8.356201, 4.064453, 3.7741485)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62bkk"]
-no_depth_test = true
-shading_mode = 0
-albedo_color = Color(1, 0, 1, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0h4th"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_ssk5l"]
-material = SubResource("StandardMaterial3D_62bkk")
-radius = 0.05
-height = 0.1
+[sub_resource type="Sky" id="Sky_1wmw5"]
+sky_material = SubResource("ProceduralSkyMaterial_0h4th")
 
-[sub_resource type="Gradient" id="Gradient_q1a7v"]
-offsets = PackedFloat32Array(0, 0.511848, 1)
-colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_fx0jp"]
-gradient = SubResource("Gradient_q1a7v")
-
-[sub_resource type="Curve" id="Curve_6ehib"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.150628, 1), 0.0, 0.0, 0, 0, Vector2(0.807531, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="CurveTexture" id="CurveTexture_2aegm"]
-curve = SubResource("Curve_6ehib")
-
-[sub_resource type="Curve" id="Curve_f17rg"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_ocwb1"]
-curve = SubResource("Curve_f17rg")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_chieh"]
-emission_shape = 3
-emission_box_extents = Vector3(10, 5, 10)
-angle_min = 1.07288e-05
-angle_max = 360.0
-initial_velocity_min = 0.5
-initial_velocity_max = 1.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.1
-scale_max = 0.1
-scale_curve = SubResource("CurveTexture_2aegm")
-color_ramp = SubResource("GradientTexture1D_fx0jp")
-turbulence_enabled = true
-turbulence_noise_scale = 16.0
-turbulence_noise_speed_random = 0.1
-turbulence_influence_min = 1.0
-turbulence_influence_max = 1.0
-turbulence_initial_displacement_min = 1.49012e-06
-turbulence_initial_displacement_max = 1.0
-turbulence_influence_over_life = SubResource("CurveTexture_ocwb1")
-
-[sub_resource type="Gradient" id="Gradient_ell2t"]
-offsets = PackedFloat32Array(0, 0.227907, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_4q1k5"]
-gradient = SubResource("Gradient_ell2t")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.5)
-metadata/_snap_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x1uwb"]
-transparency = 1
-vertex_color_use_as_albedo = true
-albedo_texture = SubResource("GradientTexture2D_4q1k5")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-distance_fade_mode = 1
-
-[sub_resource type="QuadMesh" id="QuadMesh_ys2f0"]
-material = SubResource("StandardMaterial3D_x1uwb")
+[sub_resource type="Environment" id="Environment_g8jpd"]
+background_mode = 2
+sky = SubResource("Sky_1wmw5")
 
 [node name="dungeon_test_scene" type="Node3D"]
-
-[node name="Player Sockets" type="Node" parent="."]
-
-[node name="p1_psock_adventure" type="Node" parent="Player Sockets" node_paths=PackedStringArray("mainCam", "ganty_thing", "vignette", "headsUpDisplay", "action_prompt")]
-script = ExtResource("1_ko2my")
-mainCam = NodePath("../../Camera")
-ganty_thing = NodePath("../../cam_gantry_playerFollow")
-vignette = NodePath("../../user_interface/vinyette")
-target_locker = ExtResource("2_6hxd4")
-headsUpDisplay = NodePath("../../user_interface/HUD")
-action_prompt = NodePath("../../user_interface/HUD/Action_prompt")
-
-[node name="Multplayer Manager" type="Node" parent="." node_paths=PackedStringArray("server_menu", "cam_gant", "cam_actu", "ip_input", "outfit_control")]
-script = ExtResource("3_0ge6a")
-server_menu = NodePath("../user_interface/MultiplayerControl_debug")
-cam_gant = NodePath("../cam_gantry_playerFollow")
-cam_actu = NodePath("../Camera")
-ip_input = NodePath("../user_interface/MultiplayerControl_debug/VBoxContainer/LineEdit")
-outfit_control = NodePath("../user_interface/Outfit_control")
 
 [node name="user_interface" type="Control" parent="."]
 layout_mode = 3
@@ -683,17 +594,49 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="cam_gantry_playerFollow" type="Node3D" parent="." node_paths=PackedStringArray("cam")]
-transform = Transform3D(0.887815, 0, 0.4602, 0, 1, 0, -0.4602, 0, 0.887815, 64.8381, 0.66, -2.32)
-script = ExtResource("4_ep2fr")
-cam = NodePath("../Camera")
-freeze = true
+[node name="Player Sockets" type="Node" parent="."]
+
+[node name="p1_psock_adventure" type="Node" parent="Player Sockets" node_paths=PackedStringArray("mainCam", "ganty_thing", "vignette", "headsUpDisplay", "action_prompt")]
+script = ExtResource("1_ko2my")
+mainCam = NodePath("../../Camera")
+ganty_thing = NodePath("../../cam_gantry_playerFollow")
+vignette = NodePath("../../user_interface/vinyette")
+target_locker = ExtResource("2_6hxd4")
+headsUpDisplay = NodePath("../../user_interface/HUD")
+action_prompt = NodePath("../../user_interface/HUD/Action_prompt")
+
+[node name="Multplayer Manager" type="Node" parent="." node_paths=PackedStringArray("server_menu", "cam_gant", "cam_actu", "ip_input", "outfit_control")]
+script = ExtResource("3_0ge6a")
+server_menu = NodePath("../user_interface/MultiplayerControl_debug")
+cam_gant = NodePath("../cam_gantry_playerFollow")
+cam_actu = NodePath("../Camera")
+ip_input = NodePath("../user_interface/MultiplayerControl_debug/VBoxContainer/LineEdit")
+outfit_control = NodePath("../user_interface/Outfit_control")
 
 [node name="level" type="Node3D" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="level"]
 use_collision = true
 size = Vector3(50, 0.1, 50)
+
+[node name="Door of Trials" parent="level" instance=ExtResource("7_3uq5m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07026672, -0.121219635, -13.468832)
+
+[node name="Area3D" type="Area3D" parent="level/Door of Trials"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 7.08257)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="level/Door of Trials/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.037231445, 1.5322266, -4.6129045)
+shape = SubResource("BoxShape3D_1wmw5")
+
+[node name="button_floor" parent="level" instance=ExtResource("11_f3ouy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.165807, 0.032049507, -4.7703886)
+
+[node name="cam_gantry_playerFollow" type="Node3D" parent="." node_paths=PackedStringArray("cam")]
+transform = Transform3D(0.887815, 0, 0.4602, 0, 1, 0, -0.4602, 0, 0.887815, 64.8381, 0.66, -2.32)
+script = ExtResource("4_ep2fr")
+cam = NodePath("../Camera")
+freeze = true
 
 [node name="Camera" type="Camera3D" parent="." node_paths=PackedStringArray("target_current")]
 transform = Transform3D(0.550423, -0.252361, 0.795832, 0, 0.953222, 0.30227, -0.834886, -0.166376, 0.524675, 26.3394, 5.13614, 19.3451)
@@ -702,34 +645,14 @@ target_current = NodePath("")
 distance = 2.5
 freeze = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.508387)
-visible = false
-mesh = SubResource("CylinderMesh_nes8p")
-
-[node name="Node3D" type="Node3D" parent="Camera"]
-transform = Transform3D(1, 0, 0, 0, 0.85264, 0.522499, 0, -0.522499, 0.85264, 0, 0, 0)
-visible = false
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-mesh = SubResource("SphereMesh_ssk5l")
-
-[node name="effect_dustMotes" type="GPUParticles3D" parent="Camera"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.98023e-08, 0, -4.17512)
-amount = 64
-lifetime = 15.0
-preprocess = 10.0
-process_material = SubResource("ParticleProcessMaterial_chieh")
-draw_pass_1 = SubResource("QuadMesh_ys2f0")
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.375178, 0.669904, -0.640679, -0.926834, -0.282171, 0.247706, -0.014842, 0.686737, 0.726754, 0, 0, 0)
+transform = Transform3D(-0.375178, 0.6699041, -0.6406793, -0.926834, -0.28217116, 0.24770595, -0.014842, 0.6867372, 0.72675425, 0, 17, 0)
 light_color = Color(1, 0.940078, 0.839877, 1)
+light_energy = 1.2
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("16_p6x0u")
+environment = SubResource("Environment_g8jpd")
 
 [node name="audio level ambiance" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_4gtkr")
@@ -743,3 +666,4 @@ spawn_path = NodePath("../Multplayer Manager")
 [connection signal="pressed" from="user_interface/MultiplayerControl_debug/VBoxContainer/butt_Host" to="Multplayer Manager" method="_on_butt_host_pressed"]
 [connection signal="pressed" from="user_interface/MultiplayerControl_debug/VBoxContainer/butt_Connect" to="Multplayer Manager" method="_on_butt_connect_pressed"]
 [connection signal="pressed" from="user_interface/HUD/menu_start/buttons/Button Quit" to="user_interface/HUD" method="_quit"]
+[connection signal="body_entered" from="level/Door of Trials/Area3D" to="level/Door of Trials" method="trigger_animation"]
