@@ -567,7 +567,6 @@ placeholder_text = "ip addres of host"
 [node name="Outfit_control" type="Control" parent="user_interface" node_paths=PackedStringArray("available_area", "worn_area")]
 visible = false
 custom_minimum_size = Vector2(500, 0)
-layout_mode = 3
 anchors_preset = 0
 script = ExtResource("12_kqqss")
 res_folder = "res://art/Character/clothing/DressUp Resources/"
